@@ -2,20 +2,16 @@ from turtle import *
 
 
 
-# Variables para almacenar los puntos de los jugadores
-puntos_l = 0
-puntos_r = 0
-
 pantalla = Screen()
 pantalla.title("Pong")
-pantalla.bgcolor("black")
+pantalla.bgcolor("white")
 pantalla.setup(width=1000, height=600)
 
 
 cuadradol = Turtle()
 cuadradol.speed(0)
 cuadradol.shape("square")
-cuadradol.color("white")
+cuadradol.color("black")
 cuadradol.shapesize(stretch_wid=8, stretch_len=2)
 cuadradol.penup()
 cuadradol.goto(-400,0)
@@ -23,7 +19,7 @@ cuadradol.goto(-400,0)
 cuadrador = Turtle()
 cuadrador.speed(0)
 cuadrador.shape("square")
-cuadrador.color("white")
+cuadrador.color("black")
 cuadrador.shapesize(stretch_wid=8, stretch_len=2)
 cuadrador.penup()
 cuadrador.goto(400,0)
@@ -58,4 +54,3 @@ pantalla.onkeypress(moveUpR, "Up")
 pantalla.onkeypress(moveDownR, "Down")
 
 done()
-
