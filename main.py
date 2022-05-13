@@ -11,10 +11,10 @@ pantalla.title("Flappy Bird")
 pantalla.bgcolor("black")
 pantalla.setup(width=800, height = 600)
 
-yins = [0, 0, 0]
-yfins = [0, 0, 0]
-rectangulos1 = [0, 0, 0]
-rectangulos2 = [0, 0, 0]
+yins = []
+yfins = []
+rectangulos1 = []
+rectangulos2 = []
 
 
 
@@ -93,48 +93,31 @@ activados = [False,False,False]
 
 while(pajaro.ycor() > -600):
     pantalla.update()
-    if(frame%80 == 0 or frame == 1):
+    if(frame%30 == 0 or frame == 1):
         
         rectangulo1,rectangulo2,yin,yfin = dibujarObstaculo()
 
+        rectangulos1.append(rectangulo1)
+        rectangulos2.append(rectangulo2)
+        yins.append(yin)
+        yfins.append(yfin)
         
-        # rectangulos1[index] = rectangulo1
-        # rectangulos2[index] = rectangulo2
-        # yins[index] = yin
-        # yfins[index] = yfins
-        # index += 1
-
-        moverObstaculo(rectangulos1,rectangulos2,index)
-
-        if (index >= 2):
-            index = 0
-        
-
-    #     rectangulos1.append(rectangulo1)
-    #     rectangulos2.append(rectangulo2)
-    #     yins.append(yin)
-    #     yfins.append(yfin)
-        
-    #     print(activados)
-    #     if(frame%30 == 0 or frame==1):
-    #         if(activados[0]):
-    #             if(activados[1]):
-    #                 if(not activados[2]):
-    #                     activados[2] = True
-    #             else:
-    #                 activados[1] = True
-    #         else:
-    #             activados[0] = True
+        print(activados)
+        if(activados[0]):
+            if(activados[1]):
+                if(not activados[2]):
+                    activados[2] = True
+            else:
+                activados[1] = True
+        else:
+            activados[0] = True
             
-
-    # if (activados[0]):
-    #     moverObstaculo(rectangulos1,rectangulos2,0)
-
-    # if (activados[1]):
-    #     moverObstaculo(rectangulos1,rectangulos2,1)
-
-    # if (activados[2]):
-    #     moverObstaculo(rectangulos1,rectangulos2,2)
+    if (activados[0]):
+        moverObstaculo(rectangulos1,rectangulos2,0)
+    if (activados[1]):
+        moverObstaculo(rectangulos1,rectangulos2,1)
+    if (activados[2]):
+        moverObstaculo(rectangulos1,rectangulos2,2)
 
     
 
